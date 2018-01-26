@@ -2,9 +2,20 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "dependencies": {
+    "color": "^3.0.0",
     "expo": "^25.0.0",
+    "hoist-non-react-statics": "^2.3.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "prop-types": "^15.6.0",
     "react": "16.2.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-dropdownalert": "^3.1.2",
+    "react-native-elements": "^0.19.0",
+    "react-native-meteor": "^1.2.0",
+    "react-native-platform-stylesheet": "^0.0.6",
+    "react-native-vector-icons": "^4.5.0",
+    "react-navigation": "^1.0.0-beta.27"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
