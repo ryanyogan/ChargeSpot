@@ -1,5 +1,5 @@
 import React from 'react';
-import { any, object, bool } from 'prop-types';
+import { bool, any, object } from 'prop-types';
 import { View, ScrollView } from 'react-native';
 import styles from './styles';
 
@@ -24,3 +24,5 @@ Container.propTypes = {
   children: any, // eslint-disable-line
   passProps: object, // eslint-disable-line
 };
+
+export default Container;

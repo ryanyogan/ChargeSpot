@@ -1,9 +1,7 @@
-/* eslint-disable react/forbid-prop-types */
-
 import React, { Component } from 'react';
+import { func, any } from 'prop-types';
 import { View } from 'react-native';
 import DropdownAlert from 'react-native-dropdownalert';
-import { func, any } from 'prop-types';
 
 class AlertProvider extends Component {
   static childContextTypes = {
@@ -12,13 +10,15 @@ class AlertProvider extends Component {
   };
 
   static propTypes = {
-    children: any,
+    children: any, // eslint-disable-line
   };
 
-  getChildContext = () => ({
-    alert: (...args) => this.dropdown.alert(...args),
-    alertWithType: (...args) => this.dropdown.alertWithType(...args),
-  });
+  getChildContext() {
+    return {
+      alert: (...args) => this.dropdown.alert(...args),
+      alertWithType: (...args) => this.dropdown.alertWithType(...args),
+    };
+  }
 
   render() {
     return (

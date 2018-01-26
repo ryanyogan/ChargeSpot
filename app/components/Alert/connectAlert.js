@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 
-import { func } from 'prop-types';
 import React, { Component } from 'react';
+import { func } from 'prop-types';
 import hoistNonReactStatic from 'hoist-non-react-statics';
 
 const connectAlert = WrappedComponent => {
