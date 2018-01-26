@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func } from 'prop-types';
+import { func, object } from 'prop-types';
 import { connectAlert } from '../components/Alert';
 import Container from '../components/Container';
 import { Header } from '../components/Text';
@@ -8,6 +8,7 @@ import LocateMeButton from '../components/LocateMeButton';
 class FindNearMe extends Component {
   static propTypes = {
     alertWithType: func,
+    navigator: object, // eslint-disable-line
   };
 
   handleGeolocationSuccess = position => {
