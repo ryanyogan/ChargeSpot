@@ -1,0 +1,8 @@
+{
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://ar-dgt.ryanyogan.chargespot.exp.direct",
+  "packagerNgrokUrl": "https://packager.ar-dgt.ryanyogan.chargespot.exp.direct",
+  "ngrokPid": 41590,
+  "packagerPort": 19001,
+  "packagerPid": 41545
+}
