@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { func, object } from 'prop-types';
+import Meteor from 'react-native-meteor';
 import { connectAlert } from '../components/Alert';
 import Container from '../components/Container';
 import { Header } from '../components/Text';
@@ -11,9 +12,26 @@ class FindNearMe extends Component {
     navigator: object, // eslint-disable-line
   };
 
-  handleGeolocationSuccess = position => {
-    console.log(`Lat: ${position.coords.latitude}`);
-    console.log(`Long: ${position.coords.longitude}`);
+  state = {
+    loading: false,
+  };
+
+  handleGeolocationSuccess = ({ coords: { latitude, longitude } }) => {
+    const params = {
+      latitude,
+      longitude,
+    };
+
+    this.setState({ loading: true });
+
+    Meteor.call('Locations.getNearestLocations', params, (err, locations) => {
+      if (err) {
+        this.props.alertWithType('error', 'Error', err.reason);
+      } else {
+        // TODO: Populate locations from DDP
+        this.setState({ loading: false });
+      }
+    });
   };
 
   handleGeolocationError = error =>
@@ -30,7 +48,10 @@ class FindNearMe extends Component {
   render() {
     return (
       <Container>
-        <LocateMeButton onPress={this.goToNearMe} />
+        <LocateMeButton
+          onPress={this.goToNearMe}
+          loading={this.state.loading}
+        />
         <Header>Find Nearest Charging Stations</Header>
       </Container>
     );
