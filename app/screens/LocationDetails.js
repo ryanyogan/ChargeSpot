@@ -25,17 +25,21 @@ class LocationDetails extends Component {
       status = CHECKED_OUT;
     }
 
-    this.setState({ changingStatus: true });
-    Meteor.call(
-      'Locations.changeCheckIn',
-      { locationId: location._id, status },
-      err => {
-        if (err) {
-          this.props.alertWithType('error', 'Error', err.reason);
-        }
-        this.setState({ changingStatus: false });
-      },
-    );
+    if (this.props.user !== null) {
+      this.setState({ changingStatus: true });
+      Meteor.call(
+        'Locations.changeCheckIn',
+        { locationId: location._id, status },
+        err => {
+          if (err) {
+            this.props.alertWithType('error', 'Error', err.reason);
+          }
+          this.setState({ changingStatus: false });
+        },
+      );
+    } else {
+      this.props.navigation.navigate('Account');
+    }
   };
 
   renderActivity = () => {
