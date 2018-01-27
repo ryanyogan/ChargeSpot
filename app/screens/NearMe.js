@@ -18,6 +18,9 @@ class NearMe extends Component {
     return subtitle;
   };
 
+  goToLocationDetails = location =>
+    this.props.navigation.navigate('LocationDetails', { location });
+
   render() {
     const { locations } = this.props.navigation.state.params;
 
@@ -29,6 +32,7 @@ class NearMe extends Component {
               key={location._id}
               title={location.station_name}
               subtitle={this.subTitle(location)}
+              onPress={() => this.goToLocationDetails(location)}
             />
           ))}
         </List>
