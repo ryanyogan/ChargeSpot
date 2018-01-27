@@ -16,6 +16,7 @@ export default StyleSheet.create({
     borderRadius: 6,
     borderColor: colors.primary,
     borderWidth: 0.5,
+    zIndex: 10,
   },
   amount: {
     flex: 1,
