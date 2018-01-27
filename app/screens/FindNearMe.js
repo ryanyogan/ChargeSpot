@@ -28,9 +28,9 @@ class FindNearMe extends Component {
       if (err) {
         this.props.alertWithType('error', 'Error', err.reason);
       } else {
-        // TODO: Populate locations from DDP
-        this.setState({ loading: false });
+        this.props.navigation.navigate('NearMe', { locations });
       }
+      this.setState({ loading: false });
     });
   };
 
