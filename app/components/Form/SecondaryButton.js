@@ -4,8 +4,8 @@ import { Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 const SecondaryButton = props => (
-  <TouchableOpacity onPress={props.onPress} style={styles.secondayButton}>
-    <Text styles={styles.secondayButtonText}>{props.title}</Text>
+  <TouchableOpacity onPress={props.onPress} style={styles.secondaryButton}>
+    <Text style={styles.secondaryButtonText}>{props.title}</Text>
   </TouchableOpacity>
 );
 
